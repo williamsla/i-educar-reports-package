@@ -37,7 +37,12 @@ class StudentsPerClassController extends Portabilis_Controller_ReportCoreControl
         $this->inputsHelper()->dynamic('serie', ['required' => false]);
         $this->inputsHelper()->dynamic('turma', ['required' => false]);
         $this->inputsHelper()->dynamic('situacaoMatricula');
-        $this->inputsHelper()->checkbox('proerd', ['label' => 'Modelo PROERD?']);
+        // $this->inputsHelper()->checkbox('proerd', ['label' => 'Modelo PROERD?']);
+        $this->campoLista('modelo', 'Modelo', [
+            1 => 'Completo',
+            2 => 'Simplificado',
+            3 => 'Somente nome dos alunos'
+        ]);
         $this->inputsHelper()->date('data_inicial', ['required' => false, 'label' => 'Data inicial']);
         $this->inputsHelper()->date('data_final', ['required' => false, 'label' => 'Data final']);
 
@@ -86,6 +91,7 @@ class StudentsPerClassController extends Portabilis_Controller_ReportCoreControl
         $this->report->addArg('data_inicial', Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_inicial));
         $this->report->addArg('data_final', Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_final));
         $this->report->addArg('proerd', $this->getRequest()->proerd ? 1 : 0);
+        $this->report->addArg('modelo', $this->getRequest()->modelo);
         $this->report->addArg('dependencia', (int) $this->getRequest()->dependencia);
     }
 }
