@@ -17,7 +17,7 @@ class Portabilis_Model_Report_TipoBoletim extends CoreExt_Enum
 
     protected $_reports = [
         self::NUMERIC => 'report-card',
-        self::CONCEPTUAL => 'conceptual-report-card',
+        self::CONCEPTUAL => 'conceptual-report-card-annual',
         self::CONCEPTUAL_LANDSCAPE => 'conceptual-landscape-report-card',
         self::PARECER_DESCRITIVO_COMPONENTE => 'descriptive-opinion-report-card',
         self::PARECER_DESCRITIVO_GERAL => 'general-opinion-report-card',

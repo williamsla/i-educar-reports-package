@@ -48,6 +48,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+	<parameter name="dominio" class="java.lang.String"/>
 	<parameter name="instituicao" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
@@ -63,6 +64,8 @@
 	<parameter name="cabecalho_alternativo" class="java.lang.Integer"/>
 	<parameter name="nm_secretario" class="java.lang.String"/>
 	<parameter name="nm_diretor" class="java.lang.String"/>
+	<parameter name="alterar_nome_diretor" class="java.lang.String"/>
+	<parameter name="alterar_nome_secretario" class="java.lang.String"/>
 	<parameter name="portaria_aprovacao_pontos" class="java.lang.String"/>
 	<parameter name="nao_emitir_reprovado" class="java.lang.Boolean"/>
 	<parameter name="database" class="java.lang.String">
