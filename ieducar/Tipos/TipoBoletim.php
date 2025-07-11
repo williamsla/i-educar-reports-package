@@ -17,7 +17,7 @@ class Portabilis_Model_Report_TipoBoletim extends CoreExt_Enum
 
     protected $_reports = [
         self::NUMERIC => 'report-card',
-        self::CONCEPTUAL => 'conceptual-report-card-annual',
+        self::CONCEPTUAL => 'conceptual-report-card',
         self::CONCEPTUAL_LANDSCAPE => 'conceptual-landscape-report-card',
         self::PARECER_DESCRITIVO_COMPONENTE => 'descriptive-opinion-report-card',
         self::PARECER_DESCRITIVO_GERAL => 'general-opinion-report-card',
@@ -25,6 +25,11 @@ class Portabilis_Model_Report_TipoBoletim extends CoreExt_Enum
 
     public function getReports()
     {
+        $dominio = $_SERVER['HTTP_HOST'];
+        if (strpos($dominio, 'japaratinga') !== false) {
+            $this->_reports[self::CONCEPTUAL] = 'conceptual-report-card-annual';
+        }
+
         return $this->_reports;
     }
 

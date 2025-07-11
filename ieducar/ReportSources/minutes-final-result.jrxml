@@ -387,7 +387,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba" ?  " - "  : ($V{frequencia}-(int)$V{frequencia}!=0)?new DecimalFormat("####0.0").format($V{frequencia}) + "%":new DecimalFormat("####0").format($V{frequencia}) + "%"]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba" ?  " - "  : new DecimalFormat("####0.0").format($V{frequencia}) + "%"]]></textFieldExpression>
 								</textField>
 								<textField>
 									<reportElement uuid="d8a07e80-2412-45f9-ac98-5415c91fa756" style="linha-zebrado" mode="Opaque" x="323" y="0" width="34" height="11"/>
@@ -689,7 +689,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
-									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba"  ?  " - "  : ($V{frequencia}-(int)$V{frequencia}!=0)?new DecimalFormat("####0.0").format($V{frequencia}) + "%":new DecimalFormat("####0").format($V{frequencia}) + "%"]]></textFieldExpression>
+									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba"  ?  " - "  : new DecimalFormat("####0.0").format($V{frequencia}) + "%"]]></textFieldExpression>
 								</textField>
 								<textField>
 									<reportElement uuid="d8a07e80-2412-45f9-ac98-5415c91fa756" style="linha-zebrado" mode="Opaque" x="323" y="0" width="42" height="11"/>
@@ -755,7 +755,7 @@
 						</crosstabTotalColumnHeader>
 					</columnGroup>
 					<measure name="notaMeasure" class="java.lang.String">
-						<measureExpression><![CDATA[$F{nota} == null ? " - " : $F{nota}]]></measureExpression>
+						<measureExpression><![CDATA[$F{nota} == null ? " - " : String.format(java.util.Locale.US, "%.1f", Double.parseDouble($F{nota}))]]></measureExpression>
 					</measure>
 					<measure name="count_aluno" class="java.lang.Integer">
 						<measureExpression><![CDATA[$F{aluno}]]></measureExpression>

@@ -118,7 +118,7 @@
                         <font fontName="DejaVu Sans" size="7" isBold="true"/>
                         <paragraph leftIndent="2"/>
                     </textElement>
-                    <text><![CDATA[TOT]]></text>
+                    <text><![CDATA[TOTL]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="c02b7f26-6f0c-49be-a226-7edf88e1d089" x="0" y="40" width="26" height="12"/>
@@ -126,7 +126,7 @@
                         <font fontName="DejaVu Sans" size="7" isBold="true"/>
                         <paragraph leftIndent="2"/>
                     </textElement>
-                    <text><![CDATA[ALC]]></text>
+                    <text><![CDATA[ALOC]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="3150af80-9459-4a63-b7d7-58dc6d7999a4" x="26" y="27" width="124" height="12"/>
@@ -148,7 +148,7 @@
                         <font fontName="DejaVu Sans" size="7" isBold="true"/>
                         <paragraph leftIndent="2"/>
                     </textElement>
-                    <text><![CDATA[ATR QH]]></text>
+                    <text><![CDATA[ATRI]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="6a940452-fccb-4717-b0b4-ff4b3af8953b" x="151" y="40" width="39" height="12"/>
@@ -156,7 +156,7 @@
                         <font fontName="DejaVu Sans" size="7" isBold="true"/>
                         <paragraph leftIndent="2"/>
                     </textElement>
-                    <text><![CDATA[SLD]]></text>
+                    <text><![CDATA[DISP]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="fd0333a2-386e-45b5-9501-165447624d6a" x="191" y="27" width="239" height="12"/>
@@ -245,28 +245,28 @@
                     <textElement textAlignment="Left" verticalAlignment="Middle">
                         <font fontName="DejaVu Sans" size="8" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[TOT]]></text>
+                    <text><![CDATA[TOTL]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="a8d8d62f-1633-4d9e-a095-1b3caf985774" x="453" y="21" width="30" height="13"/>
                     <textElement textAlignment="Left" verticalAlignment="Middle">
                         <font fontName="DejaVu Sans" size="8" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[ALC]]></text>
+                    <text><![CDATA[ALOC]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="a8d8d62f-1633-4d9e-a095-1b3caf985774" x="485" y="21" width="39" height="13"/>
                     <textElement textAlignment="Left" verticalAlignment="Middle">
                         <font fontName="DejaVu Sans" size="8" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[ATR QH]]></text>
+                    <text><![CDATA[ATRI]]></text>
                 </staticText>
                 <staticText>
                     <reportElement uuid="a8d8d62f-1633-4d9e-a095-1b3caf985774" x="524" y="21" width="30" height="13"/>
                     <textElement textAlignment="Left" verticalAlignment="Middle">
                         <font fontName="DejaVu Sans" size="8" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[SLD]]></text>
+                    <text><![CDATA[DISP]]></text>
                 </staticText>
                 <line>
                     <reportElement uuid="253a166e-86b2-491b-81cb-c6dd5270be0d" x="0" y="8" width="555" height="1"/>
