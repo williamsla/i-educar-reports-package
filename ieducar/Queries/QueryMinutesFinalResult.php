@@ -36,7 +36,7 @@ class QueryMinutesFinalResult extends QueryBridge
                        matricula.dependencia,
                        view_situacao.texto_situacao_simplificado as situacao,
                        relatorio.get_total_faltas(matricula.cod_matricula)::int as faltas_gerais,
-                       ROUND(modules.frequencia_da_matricula(matricula.cod_matricula)::numeric, 1)as frequencia_geral,
+                       COALESCE(ROUND((modules.frequencia_da_matricula(matricula.cod_matricula))::numeric, 1), ROUND(100*(200-relatorio.get_total_faltas(matricula.cod_matricula))/200),1) AS frequencia_geral,
                        public.data_para_extenso(
                         COALESCE(
                         (

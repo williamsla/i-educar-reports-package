@@ -13,7 +13,7 @@ SELECT DISTINCT matricula.cod_matricula,
        matricula.ref_cod_aluno AS cod_aluno,
        relatorio.get_texto_sem_caracter_especial(public.fcn_upper(pessoa.nome)) AS nm_aluno,
        view_situacao.texto_situacao_simplificado AS situacao,
-       round((modules.frequencia_da_matricula(matricula.cod_matricula))::numeric, 1) AS frequencia_geral,
+       COALESCE(ROUND((modules.frequencia_da_matricula(matricula.cod_matricula))::numeric, 1), ROUND(100*(200-relatorio.get_total_faltas(matricula.cod_matricula))/200),1) AS frequencia_geral,
        CASE WHEN matricula.aprovado IN (4,6) THEN '-'
             WHEN matricula_turma.remanejado THEN '-'
             WHEN isnumeric(nccm.media_arredondada) THEN replace(trunc(nccm.media_arredondada::numeric, ra.qtd_casas_decimais)::TEXT,'.',',')
