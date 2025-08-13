@@ -43,6 +43,13 @@ class StudentsPerClassController extends Portabilis_Controller_ReportCoreControl
             2 => 'Simplificado',
             3 => 'Somente nome dos alunos'
         ]);
+        $this->campoLista('turno', 'Turno', [
+            0 => 'Todos',
+            1 => 'Matutino',
+            2 => 'Vespertino',
+            3 => 'Noturno',
+            4 => 'Integral'
+        ]);
         $this->inputsHelper()->date('data_inicial', ['required' => false, 'label' => 'Data inicial']);
         $this->inputsHelper()->date('data_final', ['required' => false, 'label' => 'Data final']);
 
@@ -93,5 +100,6 @@ class StudentsPerClassController extends Portabilis_Controller_ReportCoreControl
         $this->report->addArg('proerd', $this->getRequest()->proerd ? 1 : 0);
         $this->report->addArg('modelo', $this->getRequest()->modelo);
         $this->report->addArg('dependencia', (int) $this->getRequest()->dependencia);
+        $this->report->addArg('turno', (int) $this->getRequest()->turno);
     }
 }
