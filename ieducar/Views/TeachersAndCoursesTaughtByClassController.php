@@ -33,8 +33,8 @@ class TeachersAndCoursesTaughtByClassController extends Portabilis_Controller_Re
     {
         $this->inputsHelper()->dynamic(['ano', 'instituicao']);
         $this->inputsHelper()->dynamic('escola');
-        $this->inputsHelper()->dynamic('curso');
-        $this->inputsHelper()->dynamic('serie');
+        $this->inputsHelper()->dynamic('curso', ['required' => false]);
+        $this->inputsHelper()->dynamic('serie', ['required' => false]);
         $this->inputsHelper()->dynamic('turma', ['required' => false]);
     }
 
