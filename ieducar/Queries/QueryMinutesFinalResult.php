@@ -96,7 +96,6 @@ class QueryMinutesFinalResult extends QueryBridge
                    AND pmieducar.escola_ano_letivo.ano = $P{ano}
                    AND pmieducar.matricula.ano = pmieducar.escola_ano_letivo.ano
                    AND escola.cod_escola = $P{escola}
-                   AND curso.cod_curso = $P{curso}
                    AND serie.cod_serie = $P{serie}
                    AND turma.cod_turma = $P{turma}
                    AND view_situacao.cod_situacao = $P{situacao}
