@@ -63,9 +63,9 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
             3 => 'Noturno'
         ];
 
-        $this->campoLista('funcao', 'Fun&ccedil;&atilde;o', $opcoes, $this->cod_servidor_funcao, '', false, '', '', false, false);
+        $this->campoLista('funcao', 'Fun&ccedil;&atilde;o', $opcoes, $this->cod_servidor_funcao, null, false, '', '', false, false);
         $this->campoLista('periodo', 'Per&iacute;odo', $periodo, $this->periodo, null, false, '', '', false, false);
-        $this->inputsHelper()->checkbox('emitir_totalizadores', ['label' => 'Adicionar totalizadores ao fim do relatório']);
+        $this->inputsHelper()->checkbox('emitir_totalizadores', ['label' => 'Adicionar totalizadores ao fim do relatório', 'value' => 1]);
         $this->inputsHelper()->checkbox('nao_emitir_afastados', ['label' => 'Não emitir servidores afastados']);
     }
 
