@@ -80,6 +80,7 @@
 	<field name="telefone" class="java.lang.Long"/>
 	<field name="ddd_telefone" class="java.lang.Long"/>
 	<field name="periodo" class="java.lang.String"/>
+	<field name="funcao" class="java.lang.String"/>
 	<variable name="contagem" class="java.lang.Integer" resetType="None" incrementType="Column" calculation="DistinctCount">
 		<variableExpression><![CDATA[]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
@@ -261,7 +262,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="DejaVu Sans" size="8" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TELEFONE]]></text>
+					<text><![CDATA[FUNÇÃO]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
@@ -367,7 +368,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vinculo} == null ? "" : $F{vinculo}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="338" y="0" width="83" height="15" uuid="11f408e7-d0d5-4485-b078-995f3630293f"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -379,7 +380,7 @@
 					<font fontName="DejaVu Sans" size="8"/>
 					<paragraph leftIndent="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{telefone} == 0 ? "" : "(" + $F{ddd_telefone} + ")" + $F{telefone}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{funcao}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="172" y="0" width="88" height="15" uuid="11f408e7-d0d5-4485-b078-995f3630293f"/>

@@ -66,11 +66,12 @@ SELECT DISTINCT COALESCE(pessoa_juridica.nome, '') AS nm_escola_servidor,
        (SELECT DISTINCT '' || (replace(textcat_all((SELECT CASE WHEN servidor_alocacao_aux.periodo = 3 THEN 'N'
 					    WHEN servidor_alocacao_aux.periodo = 2 THEN 'V'
 					    WHEN servidor_alocacao_aux.periodo = 1 THEN 'M'
-			   END)),' <br> ','/'))
+			   END)),' <br> ','/'))       
 	 FROM pmieducar.servidor_alocacao servidor_alocacao_aux
 	WHERE servidor_alocacao_aux.ref_cod_servidor = servidor_alocacao.ref_cod_servidor
 	  AND servidor_alocacao_aux.ref_cod_escola = escola.cod_escola
-	  AND servidor_alocacao_aux.ano = {$ano}) AS periodo
+	  AND servidor_alocacao_aux.ano = {$ano}) AS periodo,
+      funcao.nm_funcao AS funcao
   FROM pmieducar.instituicao
  INNER JOIN pmieducar.servidor ON (servidor.ref_cod_instituicao = instituicao.cod_instituicao)
  INNER JOIN cadastro.pessoa ON (pessoa.idpes = servidor.cod_servidor)
@@ -102,7 +103,7 @@ SELECT DISTINCT COALESCE(pessoa_juridica.nome, '') AS nm_escola_servidor,
                                        WHERE sa.ativo = 1)
              ELSE TRUE
         END)
-group by nm_escola_servidor, pessoa.nome, escolaridade.descricao, pessoa.idpes, escola.cod_escola, fisica.cpf, fone_pessoa.fone, fone_pessoa.ddd, servidor_alocacao.ref_cod_servidor
+group by nm_escola_servidor, pessoa.nome, escolaridade.descricao, pessoa.idpes, escola.cod_escola, fisica.cpf, fone_pessoa.fone, fone_pessoa.ddd, servidor_alocacao.ref_cod_servidor, funcao.nm_funcao
  ORDER BY nm_escola_servidor, nm_servidor_order
         ";
     }
