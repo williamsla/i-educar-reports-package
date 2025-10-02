@@ -36,6 +36,13 @@ Instale o pacote:
 php artisan community:reports:install
 ```
 
+Publique os assets:
+
+```bash
+# (Docker) docker-compose exec php artisan vendor:publish --tag=reports-assets --ansi
+php artisan vendor:publish --tag=reports-assets --ansi
+```
+
 ## Perguntas frequentes (FAQ)
 
 Algumas perguntas aparecem recorrentemente. Olhe primeiro por aqui:
