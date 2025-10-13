@@ -11,7 +11,15 @@ class ServantsReport extends Portabilis_Report_ReportCore
      */
     public function templateName()
     {
-        return 'servants';
+        $modelo = $this->args['modelo'] ?: 0;
+
+        if ($modelo == 0) {
+            return 'servants';
+        } else if ($modelo == 1) {
+            return 'servants-signature';
+        } else {
+            return 'servants';
+        }
     }
 
     /**
