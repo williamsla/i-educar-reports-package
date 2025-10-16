@@ -38,11 +38,21 @@ class StudentsPerClassController extends Portabilis_Controller_ReportCoreControl
         $this->inputsHelper()->dynamic('turma', ['required' => false]);
         $this->inputsHelper()->dynamic('situacaoMatricula');
         // $this->inputsHelper()->checkbox('proerd', ['label' => 'Modelo PROERD?']);
-        $this->campoLista('modelo', 'Modelo', [
-            1 => 'Completo',
-            2 => 'Simplificado',
-            3 => 'Somente nome dos alunos'
-        ]);
+        $dominio = $_SERVER['HTTP_HOST'];
+        if (stripos($dominio, 'delmiro') !== false) {
+             $this->campoLista('modelo', 'Modelo', [                
+                1 => 'Relação de Alunos por Turma',
+                2 => 'Relação Nominal de Alunos',
+                3 => 'Completo',
+            ]);
+        } else {
+            $this->campoLista('modelo', 'Modelo', [
+                1 => 'Completo',
+                2 => 'Simplificado',
+                3 => 'Somente nome dos alunos'
+            ]);
+        }
+        
         $this->campoLista('turno', 'Turno', [
             0 => 'Todos',
             1 => 'Matutino',
