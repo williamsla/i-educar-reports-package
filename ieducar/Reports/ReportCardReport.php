@@ -5,12 +5,14 @@ use iEducar\Reports\JsonDataSource;
 
 class ReportCardReport extends Portabilis_Report_ReportCore
 {
-    use JsonDataSource, GeneralOpinionsTrait, ReportCardTrait, DescriptiveOpinionsTrait {
+    use JsonDataSource, GeneralOpinionsTrait, ReportCardTrait, ReportCardTraitWithSemesterRecovery, DescriptiveOpinionsTrait {
         DescriptiveOpinionsTrait::query insteadof GeneralOpinionsTrait;
-        GeneralOpinionsTrait::query insteadof ReportCardTrait;
+        GeneralOpinionsTrait::query insteadof ReportCardTrait, ReportCardTraitWithSemesterRecovery;
+
         DescriptiveOpinionsTrait::query as QueryDescriptiveOpinions;
         GeneralOpinionsTrait::query as QueryGeneralOpinions;
         ReportCardTrait::query as QueryReportCard;
+        ReportCardTraitWithSemesterRecovery::query as QueryReportCardWithSemesterRecovery;
     }
 
     /**
@@ -64,8 +66,9 @@ class ReportCardReport extends Portabilis_Report_ReportCore
         }
 
         $templates = Portabilis_Model_Report_TipoBoletim::getInstance()->getReports();
+        
         $template = !empty($templates[$flagTipoBoletimTurma]) ? $templates[$flagTipoBoletimTurma] : '';
-
+        
         if ($this->args['orientacao'] == 2) {
             $template = $templates[Portabilis_Model_Report_TipoBoletim::CONCEPTUAL_LANDSCAPE];
         }
@@ -103,14 +106,14 @@ class ReportCardReport extends Portabilis_Report_ReportCore
     private function getQueryByTemplate()
     {
         $templates = Portabilis_Model_Report_TipoBoletim::getInstance()->getReports();
-
+        
         return [
             $templates[Portabilis_Model_Report_TipoBoletim::NUMERIC] => $this->QueryReportCard(),
             $templates[Portabilis_Model_Report_TipoBoletim::CONCEPTUAL] => $this->QueryReportCard(),
             $templates[Portabilis_Model_Report_TipoBoletim::CONCEPTUAL_LANDSCAPE] => $this->QueryReportCard(),
             $templates[Portabilis_Model_Report_TipoBoletim::PARECER_DESCRITIVO_COMPONENTE] => $this->QueryDescriptiveOpinions(),
             $templates[Portabilis_Model_Report_TipoBoletim::PARECER_DESCRITIVO_GERAL] => $this->QueryGeneralOpinions(),
-
+            $templates[Portabilis_Model_Report_TipoBoletim::NUMERIC_WITH_SEMESTER_RECOVERY] => $this->QueryReportCardWithSemesterRecovery(),
         ];
     }
 }

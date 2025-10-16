@@ -65,6 +65,12 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
 
         $this->campoLista('funcao', 'Fun&ccedil;&atilde;o', $opcoes, $this->cod_servidor_funcao, null, false, '', '', false, false);
         $this->campoLista('periodo', 'Per&iacute;odo', $periodo, $this->periodo, null, false, '', '', false, false);
+
+        $modelo = [
+            0 => 'Padrão',
+            1 => 'Para assinatura'
+        ];
+        $this->campoLista('modelo', 'Modelo', $modelo, $this->modelo, null, false, '', '', false, false);
         $this->inputsHelper()->checkbox('emitir_totalizadores', ['label' => 'Adicionar totalizadores ao fim do relatório', 'value' => 1]);
         $this->inputsHelper()->checkbox('nao_emitir_afastados', ['label' => 'Não emitir servidores afastados']);
     }
@@ -80,6 +86,7 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
         $this->report->addArg('funcao', (int) $this->getRequest()->funcao);
         $this->report->addArg('vinculo', (int) $this->getRequest()->vinculo_id);
         $this->report->addArg('periodo', (int) $this->getRequest()->periodo);
+        $this->report->addArg('modelo', (int) $this->getRequest()->modelo);
         $this->report->addArg('emitir_totalizadores', (bool) $this->getRequest()->emitir_totalizadores);
         $this->report->addArg('nao_emitir_afastados', (bool) $this->getRequest()->nao_emitir_afastados);
     }
