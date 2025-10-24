@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portabilis_ata_resultado_final" language="groovy" pageWidth="823" pageHeight="612" orientation="Landscape" columnWidth="783" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6aa6f40c-104d-4995-8361-09cc67a938a0">
 	<property name="ireport.zoom" value="1.1000000000000068"/>
 	<property name="ireport.x" value="0"/>
@@ -6,7 +7,7 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<style name="Crosstab Data Text"/>
-	<style name="linha-zebrado" hAlign="Center">
+	<style name="linha-zebrado" hTextAlign="Center" hImageAlign="Center">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[new Boolean(($V{ROW_COUNT}.intValue() % 2) == 0)]]></conditionExpression>
 			<style backcolor="#F0F0F0"/>
@@ -32,7 +33,7 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="linha-zebrado_1" hAlign="Center">
+	<style name="linha-zebrado_1" hTextAlign="Center" hImageAlign="Center">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[new Boolean(($V{REPORT_COUNT}.intValue() % 2) == 0)]]></conditionExpression>
 			<style backcolor="#F0F0F0"/>
@@ -124,65 +125,65 @@
 		<groupHeader>
 			<band height="35" splitType="Stretch">
 				<rectangle radius="0">
-					<reportElement uuid="c47f071a-d411-4f7d-aed9-c51f4b788537" stretchType="RelativeToBandHeight" x="0" y="13" width="778" height="22"/>
+					<reportElement stretchType="ContainerHeight" x="0" y="13" width="778" height="22" uuid="c47f071a-d411-4f7d-aed9-c51f4b788537"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</rectangle>
 				<staticText>
-					<reportElement uuid="2e8df1f3-663e-4235-9e1e-6dfa9982b505" x="10" y="14" width="91" height="10"/>
+					<reportElement x="10" y="14" width="91" height="10" uuid="2e8df1f3-663e-4235-9e1e-6dfa9982b505"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[Tipo de ensino]]></text>
 				</staticText>
 				<line>
-					<reportElement uuid="f2a5527b-8cd4-43db-8533-09be16611c78" stretchType="RelativeToTallestObject" x="169" y="13" width="1" height="22"/>
+					<reportElement stretchType="ElementGroupHeight" x="169" y="13" width="1" height="22" uuid="f2a5527b-8cd4-43db-8533-09be16611c78"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement uuid="f2a5527b-8cd4-43db-8533-09be16611c78" stretchType="RelativeToTallestObject" x="339" y="13" width="1" height="22"/>
+					<reportElement stretchType="ElementGroupHeight" x="339" y="13" width="1" height="22" uuid="f2a5527b-8cd4-43db-8533-09be16611c78"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
 				<staticText>
-					<reportElement uuid="be83e4ba-bf3d-4b01-a633-23acc61b6f63" x="175" y="14" width="60" height="12"/>
+					<reportElement x="175" y="14" width="60" height="12" uuid="be83e4ba-bf3d-4b01-a633-23acc61b6f63"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[Série]]></text>
 				</staticText>
 				<line>
-					<reportElement uuid="f2a5527b-8cd4-43db-8533-09be16611c78" stretchType="RelativeToTallestObject" x="479" y="13" width="1" height="22"/>
+					<reportElement stretchType="ElementGroupHeight" x="479" y="13" width="1" height="22" uuid="f2a5527b-8cd4-43db-8533-09be16611c78"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement uuid="f2a5527b-8cd4-43db-8533-09be16611c78" stretchType="RelativeToTallestObject" x="629" y="13" width="1" height="22"/>
+					<reportElement stretchType="ElementGroupHeight" x="629" y="13" width="1" height="22" uuid="f2a5527b-8cd4-43db-8533-09be16611c78"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
 				</line>
 				<staticText>
-					<reportElement uuid="facc719d-be98-44a7-b6d1-83d78470c015" x="345" y="14" width="60" height="12"/>
+					<reportElement x="345" y="14" width="60" height="12" uuid="facc719d-be98-44a7-b6d1-83d78470c015"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[Turno]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="6953c7f5-6d0d-4a40-97f1-2b04a826cab0" x="485" y="14" width="60" height="12"/>
+					<reportElement x="485" y="14" width="60" height="12" uuid="6953c7f5-6d0d-4a40-97f1-2b04a826cab0"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[Turma]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="91f84f15-ac29-480d-b059-2ff8bcd6b901" x="635" y="14" width="84" height="12"/>
+					<reportElement x="635" y="14" width="84" height="12" uuid="91f84f15-ac29-480d-b059-2ff8bcd6b901"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
@@ -190,35 +191,35 @@
 				</staticText>
 				<elementGroup/>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="d7cb064f-ead8-42d0-9fcc-6af162fb9f3f" stretchType="RelativeToTallestObject" x="10" y="24" width="159" height="11"/>
+					<reportElement stretchType="ElementGroupHeight" x="10" y="24" width="159" height="11" uuid="d7cb064f-ead8-42d0-9fcc-6af162fb9f3f"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nm_curso}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="ac5b81b3-5dc6-48f5-bd73-db0b4768058b" x="175" y="13" width="164" height="22"/>
+					<reportElement x="175" y="13" width="164" height="22" uuid="ac5b81b3-5dc6-48f5-bd73-db0b4768058b"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nm_serie}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="36be69db-91d4-456a-bfab-bab8b4d4d7c1" x="345" y="13" width="134" height="22"/>
+					<reportElement x="345" y="13" width="134" height="22" uuid="36be69db-91d4-456a-bfab-bab8b4d4d7c1"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{turno_turma}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="30134ac3-5a56-47ed-a864-b6d7f3cc4008" x="485" y="13" width="145" height="22"/>
+					<reportElement x="485" y="13" width="145" height="22" uuid="30134ac3-5a56-47ed-a864-b6d7f3cc4008"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{nm_turma}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="fa949fd7-bcea-470e-891e-d332f556ffbf" x="635" y="13" width="143" height="22"/>
+					<reportElement x="635" y="13" width="143" height="22" uuid="fa949fd7-bcea-470e-891e-d332f556ffbf"/>
 					<box>
 						<bottomPen lineWidth="0.0"/>
 						<rightPen lineWidth="0.0"/>
@@ -233,38 +234,38 @@
 		<groupFooter>
 			<band height="185">
 				<crosstab columnBreakOffset="0" ignoreWidth="false">
-					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="185">
+					<reportElement x="0" y="0" width="783" height="185" uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec">
 						<printWhenExpression><![CDATA[$F{usa_media_geral}]]></printWhenExpression>
 					</reportElement>
 					<crosstabDataset isDataPreSorted="true"/>
 					<crosstabHeaderCell>
 						<cellContents>
 							<rectangle radius="0">
-								<reportElement uuid="9c6062f1-4a12-4a0e-b078-d26686e79732" style="Crosstab Data Text" x="0" y="0" width="418" height="110" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="418" height="110" backcolor="#E7E7E7" uuid="9c6062f1-4a12-4a0e-b078-d26686e79732"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="cc722808-4065-45eb-8a28-f3d463d58b16" style="Crosstab Data Text" x="0" y="110" width="418" height="11" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="0" y="110" width="418" height="11" backcolor="#E7E7E7" uuid="cc722808-4065-45eb-8a28-f3d463d58b16"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="b5a36ae1-6ea4-4769-a2a1-ec0d54d38c0f" style="Crosstab Data Text" x="323" y="0" width="95" height="121" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="323" y="0" width="95" height="121" backcolor="#E7E7E7" uuid="b5a36ae1-6ea4-4769-a2a1-ec0d54d38c0f"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="cc722808-4065-45eb-8a28-f3d463d58b16" style="Crosstab Data Text" x="357" y="0" width="25" height="121" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="357" y="0" width="25" height="121" backcolor="#E7E7E7" uuid="cc722808-4065-45eb-8a28-f3d463d58b16"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<staticText>
-								<reportElement uuid="326dfc11-9f58-4955-aca7-ad5fbdd28363" style="Crosstab Data Text" x="382" y="0" width="36" height="110"/>
+								<reportElement style="Crosstab Data Text" x="382" y="0" width="36" height="110" uuid="326dfc11-9f58-4955-aca7-ad5fbdd28363"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -275,21 +276,21 @@
 								<text><![CDATA[Disciplinas Ministradas]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="5284b536-946b-4c87-a783-1ebd0cb146cb" style="Crosstab Data Text" x="2" y="110" width="231" height="10"/>
+								<reportElement style="Crosstab Data Text" x="2" y="110" width="231" height="10" uuid="5284b536-946b-4c87-a783-1ebd0cb146cb"/>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8"/>
 								</textElement>
 								<text><![CDATA[Nome do aluno]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="2bee4445-3286-4f48-8d57-1bab3d11e764" style="Crosstab Data Text" x="382" y="110" width="36" height="10"/>
+								<reportElement style="Crosstab Data Text" x="382" y="110" width="36" height="10" uuid="2bee4445-3286-4f48-8d57-1bab3d11e764"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8"/>
 								</textElement>
 								<text><![CDATA[C.H.]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="de716f6b-64b5-40c8-930f-48b20b6bd749" style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="323" y="0" width="34" height="110"/>
+								<reportElement style="Crosstab Data Text" stretchType="ElementGroupHeight" x="323" y="0" width="34" height="110" uuid="de716f6b-64b5-40c8-930f-48b20b6bd749"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -301,7 +302,7 @@
     e freq. global]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="de716f6b-64b5-40c8-930f-48b20b6bd749" style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="357" y="0" width="25" height="110"/>
+								<reportElement style="Crosstab Data Text" stretchType="ElementGroupHeight" x="357" y="0" width="25" height="110" uuid="de716f6b-64b5-40c8-930f-48b20b6bd749"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -312,7 +313,7 @@
 								<text><![CDATA[Média Global]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="7ad0c738-9ed9-423b-a3d2-2042ceb84a24" style="Crosstab Data Text" x="233" y="110" width="88" height="10"/>
+								<reportElement style="Crosstab Data Text" x="233" y="110" width="88" height="10" uuid="7ad0c738-9ed9-423b-a3d2-2042ceb84a24"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="6"/>
 								</textElement>
@@ -333,7 +334,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<rectangle>
-									<reportElement uuid="b0d7e223-b609-4a75-8e07-0f352c2280e6" style="Crosstab Data Text" x="0" y="0" width="418" height="21">
+									<reportElement style="Crosstab Data Text" x="0" y="0" width="418" height="21" uuid="b0d7e223-b609-4a75-8e07-0f352c2280e6">
 										<printWhenExpression><![CDATA[new Boolean(($V{COLUMN_COUNT} % 2) == 1)]]></printWhenExpression>
 									</reportElement>
 									<graphicElement>
@@ -341,7 +342,7 @@
 									</graphicElement>
 								</rectangle>
 								<textField>
-									<reportElement uuid="2d62bf87-fd79-4cbe-b9e1-4f80d50bb5fc" style="linha-zebrado" mode="Opaque" x="0" y="0" width="233" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="0" y="0" width="233" height="21" uuid="2d62bf87-fd79-4cbe-b9e1-4f80d50bb5fc"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Left" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
@@ -349,7 +350,7 @@
 									<textFieldExpression><![CDATA[$V{nm_aluno}]]></textFieldExpression>
 								</textField>
 								<staticText>
-									<reportElement uuid="f6348606-9b9b-49f5-9dd9-f80b7fd0f95a" style="linha-zebrado" mode="Opaque" x="382" y="0" width="36" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="382" y="0" width="36" height="11" uuid="f6348606-9b9b-49f5-9dd9-f80b7fd0f95a"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 									</box>
@@ -359,7 +360,7 @@
 									<text><![CDATA[Nota]]></text>
 								</staticText>
 								<staticText>
-									<reportElement uuid="2416214e-065a-47cb-9675-37f1f53e8a22" style="linha-zebrado" mode="Opaque" x="382" y="10" width="36" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="382" y="10" width="36" height="11" uuid="2416214e-065a-47cb-9675-37f1f53e8a22"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 									</box>
@@ -369,7 +370,7 @@
 									<text><![CDATA[Faltas]]></text>
 								</staticText>
 								<textField pattern="###" isBlankWhenNull="true">
-									<reportElement uuid="85db04cb-ca6b-4aa1-931e-3a34f31b92ae" style="linha-zebrado" mode="Opaque" x="357" y="0" width="25" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="357" y="0" width="25" height="21" uuid="85db04cb-ca6b-4aa1-931e-3a34f31b92ae"/>
 									<box>
 										<rightPen lineWidth="0.25"/>
 									</box>
@@ -379,7 +380,7 @@
 									<textFieldExpression><![CDATA[$V{media_geral} == null || $V{situacao}.equals("Trs") || $V{situacao}.equals("Aba") ?  " - " : $V{media_geral}]]></textFieldExpression>
 								</textField>
 								<textField isBlankWhenNull="true">
-									<reportElement uuid="53d680c6-c629-4588-a7df-5c16427abbe7" style="linha-zebrado" mode="Opaque" x="323" y="10" width="34" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="323" y="10" width="34" height="11" uuid="53d680c6-c629-4588-a7df-5c16427abbe7"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 										<rightPen lineWidth="0.25"/>
@@ -390,7 +391,7 @@
 									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba" ?  " - "  : new DecimalFormat("####0.0").format($V{frequencia}) + "%"]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="d8a07e80-2412-45f9-ac98-5415c91fa756" style="linha-zebrado" mode="Opaque" x="323" y="0" width="34" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="323" y="0" width="34" height="11" uuid="d8a07e80-2412-45f9-ac98-5415c91fa756"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 										<rightPen lineWidth="0.25"/>
@@ -401,7 +402,7 @@
 									<textFieldExpression><![CDATA[$V{situacao}]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="36ed0bc9-3968-47ab-8250-4b1e7afa7399" style="linha-zebrado" mode="Opaque" x="232" y="0" width="91" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="232" y="0" width="91" height="21" uuid="36ed0bc9-3968-47ab-8250-4b1e7afa7399"/>
 									<box rightPadding="2">
 										<rightPen lineWidth="0.25"/>
 									</box>
@@ -429,7 +430,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textField>
-									<reportElement uuid="7dde05f5-d91c-4e61-aedc-7b732ea48094" style="Crosstab Data Text" x="0" y="0" width="30" height="110"/>
+									<reportElement style="Crosstab Data Text" x="0" y="0" width="30" height="110" uuid="7dde05f5-d91c-4e61-aedc-7b732ea48094"/>
 									<box>
 										<bottomPen lineWidth="0.25"/>
 									</box>
@@ -440,7 +441,7 @@
 									<textFieldExpression><![CDATA[$V{componente_curricular} == null ? " -  " : $V{componente_curricular}]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="b1096632-5ed7-4185-9e14-61dbc938341b" x="0" y="110" width="30" height="10"/>
+									<reportElement x="0" y="110" width="30" height="10" uuid="b1096632-5ed7-4185-9e14-61dbc938341b"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
@@ -482,7 +483,7 @@
 					<crosstabCell width="30" height="21">
 						<cellContents>
 							<textField>
-								<reportElement uuid="9d614647-7929-4b26-94c1-f96f54422b39" style="linha-zebrado" mode="Opaque" x="0" y="0" width="30" height="11"/>
+								<reportElement style="linha-zebrado" mode="Opaque" x="0" y="0" width="30" height="11" uuid="9d614647-7929-4b26-94c1-f96f54422b39"/>
 								<box>
 									<topPen lineWidth="0.25"/>
 									<leftPen lineWidth="0.25"/>
@@ -494,7 +495,7 @@
 								<textFieldExpression><![CDATA[$V{situacao} == "Trs" || $V{situacao} == "Aba"  ? "-" : $V{notaMeasure}]]></textFieldExpression>
 							</textField>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement uuid="57bcd6eb-e1e8-4daa-a6e2-ed8273c6e89a" style="linha-zebrado" mode="Opaque" x="0" y="10" width="30" height="11"/>
+								<reportElement style="linha-zebrado" mode="Opaque" x="0" y="10" width="30" height="11" uuid="57bcd6eb-e1e8-4daa-a6e2-ed8273c6e89a"/>
 								<box>
 									<leftPen lineWidth="0.25"/>
 									<bottomPen lineWidth="0.25"/>
@@ -510,8 +511,7 @@
 					<crosstabCell height="25" rowTotalGroup="aluno">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="21407fe9-1114-457c-8aee-cbdcb1736f6a" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="21407fe9-1114-457c-8aee-cbdcb1736f6a"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -519,8 +519,7 @@
 					<crosstabCell width="50" columnTotalGroup="componente_curricular">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="d6b5d082-d63d-40ca-9f2a-9bdb9703c715" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="d6b5d082-d63d-40ca-9f2a-9bdb9703c715"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -528,46 +527,45 @@
 					<crosstabCell rowTotalGroup="aluno" columnTotalGroup="componente_curricular">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="fe8cfc4c-d50e-43c2-b393-3f7a8ff10fe0" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="fe8cfc4c-d50e-43c2-b393-3f7a8ff10fe0"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
 					</crosstabCell>
 				</crosstab>
 				<crosstab columnBreakOffset="0" ignoreWidth="false">
-					<reportElement uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec" x="0" y="0" width="783" height="185">
+					<reportElement x="0" y="0" width="783" height="185" uuid="0f045964-8ec7-4fdf-8410-2e62d650f0ec">
 						<printWhenExpression><![CDATA[!$F{usa_media_geral}]]></printWhenExpression>
 					</reportElement>
 					<crosstabDataset isDataPreSorted="true"/>
 					<crosstabHeaderCell>
 						<cellContents>
 							<rectangle radius="0">
-								<reportElement uuid="9c6062f1-4a12-4a0e-b078-d26686e79732" style="Crosstab Data Text" x="0" y="0" width="418" height="110" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="418" height="110" backcolor="#E7E7E7" uuid="9c6062f1-4a12-4a0e-b078-d26686e79732"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="cc722808-4065-45eb-8a28-f3d463d58b16" style="Crosstab Data Text" x="0" y="110" width="418" height="11" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="0" y="110" width="418" height="11" backcolor="#E7E7E7" uuid="cc722808-4065-45eb-8a28-f3d463d58b16"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="b5a36ae1-6ea4-4769-a2a1-ec0d54d38c0f" style="Crosstab Data Text" x="323" y="0" width="95" height="121" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="323" y="0" width="95" height="121" backcolor="#E7E7E7" uuid="b5a36ae1-6ea4-4769-a2a1-ec0d54d38c0f"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<rectangle>
-								<reportElement uuid="cc722808-4065-45eb-8a28-f3d463d58b16" style="Crosstab Data Text" x="323" y="0" width="42" height="121" backcolor="#E7E7E7"/>
+								<reportElement style="Crosstab Data Text" x="323" y="0" width="42" height="121" backcolor="#E7E7E7" uuid="cc722808-4065-45eb-8a28-f3d463d58b16"/>
 								<graphicElement>
 									<pen lineWidth="0.25"/>
 								</graphicElement>
 							</rectangle>
 							<staticText>
-								<reportElement uuid="326dfc11-9f58-4955-aca7-ad5fbdd28363" style="Crosstab Data Text" x="365" y="0" width="53" height="110"/>
+								<reportElement style="Crosstab Data Text" x="365" y="0" width="53" height="110" uuid="326dfc11-9f58-4955-aca7-ad5fbdd28363"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -578,21 +576,21 @@
 								<text><![CDATA[Disciplinas Ministradas]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="5284b536-946b-4c87-a783-1ebd0cb146cb" style="Crosstab Data Text" x="2" y="110" width="231" height="10"/>
+								<reportElement style="Crosstab Data Text" x="2" y="110" width="231" height="10" uuid="5284b536-946b-4c87-a783-1ebd0cb146cb"/>
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8"/>
 								</textElement>
 								<text><![CDATA[Nome do aluno]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="2bee4445-3286-4f48-8d57-1bab3d11e764" style="Crosstab Data Text" x="365" y="110" width="53" height="10"/>
+								<reportElement style="Crosstab Data Text" x="365" y="110" width="53" height="10" uuid="2bee4445-3286-4f48-8d57-1bab3d11e764"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="8"/>
 								</textElement>
 								<text><![CDATA[C.H.]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="de716f6b-64b5-40c8-930f-48b20b6bd749" style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="323" y="0" width="42" height="110"/>
+								<reportElement style="Crosstab Data Text" stretchType="ElementGroupHeight" x="323" y="0" width="42" height="110" uuid="de716f6b-64b5-40c8-930f-48b20b6bd749"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -604,7 +602,7 @@
     e freq. global]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="de716f6b-64b5-40c8-930f-48b20b6bd749" style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="323" y="0" width="0" height="121"/>
+								<reportElement style="Crosstab Data Text" stretchType="ElementGroupHeight" x="323" y="0" width="0" height="121" uuid="de716f6b-64b5-40c8-930f-48b20b6bd749"/>
 								<box>
 									<bottomPen lineWidth="0.25"/>
 								</box>
@@ -615,7 +613,7 @@
 								<text><![CDATA[]]></text>
 							</staticText>
 							<staticText>
-								<reportElement uuid="7ad0c738-9ed9-423b-a3d2-2042ceb84a24" style="Crosstab Data Text" x="233" y="110" width="88" height="10"/>
+								<reportElement style="Crosstab Data Text" x="233" y="110" width="88" height="10" uuid="7ad0c738-9ed9-423b-a3d2-2042ceb84a24"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
 									<font fontName="DejaVu Sans" size="6"/>
 								</textElement>
@@ -636,7 +634,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<rectangle>
-									<reportElement uuid="b0d7e223-b609-4a75-8e07-0f352c2280e6" style="Crosstab Data Text" x="0" y="0" width="418" height="21">
+									<reportElement style="Crosstab Data Text" x="0" y="0" width="418" height="21" uuid="b0d7e223-b609-4a75-8e07-0f352c2280e6">
 										<printWhenExpression><![CDATA[new Boolean(($V{COLUMN_COUNT} % 2) == 1)]]></printWhenExpression>
 									</reportElement>
 									<graphicElement>
@@ -644,7 +642,7 @@
 									</graphicElement>
 								</rectangle>
 								<textField>
-									<reportElement uuid="2d62bf87-fd79-4cbe-b9e1-4f80d50bb5fc" style="linha-zebrado" mode="Opaque" x="0" y="0" width="233" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="0" y="0" width="233" height="21" uuid="2d62bf87-fd79-4cbe-b9e1-4f80d50bb5fc"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Left" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
@@ -652,7 +650,7 @@
 									<textFieldExpression><![CDATA[$V{nm_aluno}]]></textFieldExpression>
 								</textField>
 								<staticText>
-									<reportElement uuid="f6348606-9b9b-49f5-9dd9-f80b7fd0f95a" style="linha-zebrado" mode="Opaque" x="365" y="0" width="53" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="365" y="0" width="53" height="11" uuid="f6348606-9b9b-49f5-9dd9-f80b7fd0f95a"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 									</box>
@@ -662,7 +660,7 @@
 									<text><![CDATA[Nota]]></text>
 								</staticText>
 								<staticText>
-									<reportElement uuid="2416214e-065a-47cb-9675-37f1f53e8a22" style="linha-zebrado" mode="Opaque" x="365" y="10" width="53" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="365" y="10" width="53" height="11" uuid="2416214e-065a-47cb-9675-37f1f53e8a22"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 									</box>
@@ -672,7 +670,7 @@
 									<text><![CDATA[Faltas]]></text>
 								</staticText>
 								<textField pattern="###" isBlankWhenNull="true">
-									<reportElement uuid="85db04cb-ca6b-4aa1-931e-3a34f31b92ae" style="linha-zebrado" mode="Opaque" x="357" y="0" width="8" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="357" y="0" width="8" height="21" uuid="85db04cb-ca6b-4aa1-931e-3a34f31b92ae"/>
 									<box>
 										<rightPen lineWidth="0.25"/>
 									</box>
@@ -681,7 +679,7 @@
 									</textElement>
 								</textField>
 								<textField isBlankWhenNull="true">
-									<reportElement uuid="53d680c6-c629-4588-a7df-5c16427abbe7" style="linha-zebrado" mode="Opaque" x="323" y="10" width="42" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="323" y="10" width="42" height="11" uuid="53d680c6-c629-4588-a7df-5c16427abbe7"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 										<rightPen lineWidth="0.25"/>
@@ -692,7 +690,7 @@
 									<textFieldExpression><![CDATA[$V{frequencia} == null || $V{situacao} == "Trs" || $V{situacao} == "Aba"  ?  " - "  : new DecimalFormat("####0.0").format($V{frequencia}) + "%"]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="d8a07e80-2412-45f9-ac98-5415c91fa756" style="linha-zebrado" mode="Opaque" x="323" y="0" width="42" height="11"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="323" y="0" width="42" height="11" uuid="d8a07e80-2412-45f9-ac98-5415c91fa756"/>
 									<box>
 										<leftPen lineWidth="0.25"/>
 										<rightPen lineWidth="0.25"/>
@@ -703,7 +701,7 @@
 									<textFieldExpression><![CDATA[$V{situacao}]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="36ed0bc9-3968-47ab-8250-4b1e7afa7399" style="linha-zebrado" mode="Opaque" x="232" y="0" width="91" height="21"/>
+									<reportElement style="linha-zebrado" mode="Opaque" x="232" y="0" width="91" height="21" uuid="36ed0bc9-3968-47ab-8250-4b1e7afa7399"/>
 									<box rightPadding="2">
 										<rightPen lineWidth="0.25"/>
 									</box>
@@ -731,7 +729,7 @@
 									<rightPen lineWidth="0.25"/>
 								</box>
 								<textField>
-									<reportElement uuid="7dde05f5-d91c-4e61-aedc-7b732ea48094" style="Crosstab Data Text" x="0" y="0" width="30" height="110"/>
+									<reportElement style="Crosstab Data Text" x="0" y="0" width="30" height="110" uuid="7dde05f5-d91c-4e61-aedc-7b732ea48094"/>
 									<box>
 										<bottomPen lineWidth="0.25"/>
 									</box>
@@ -742,7 +740,7 @@
 									<textFieldExpression><![CDATA[$V{componente_curricular} == null ? " -  " : $V{componente_curricular}]]></textFieldExpression>
 								</textField>
 								<textField>
-									<reportElement uuid="b1096632-5ed7-4185-9e14-61dbc938341b" x="0" y="110" width="30" height="10"/>
+									<reportElement x="0" y="110" width="30" height="10" uuid="b1096632-5ed7-4185-9e14-61dbc938341b"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
@@ -755,7 +753,11 @@
 						</crosstabTotalColumnHeader>
 					</columnGroup>
 					<measure name="notaMeasure" class="java.lang.String">
-						<measureExpression><![CDATA[$F{nota} == null ? " - " : String.format(java.util.Locale.US, "%.1f", Double.parseDouble($F{nota}))]]></measureExpression>
+						<measureExpression><![CDATA[$F{nota} == null
+							    ? " - "
+							    : ($F{nota}.matches(".*[a-zA-Z].*")
+							        ? $F{nota}
+							        : String.format(java.util.Locale.US, "%.1f", Double.parseDouble($F{nota})))]]></measureExpression>
 					</measure>
 					<measure name="count_aluno" class="java.lang.Integer">
 						<measureExpression><![CDATA[$F{aluno}]]></measureExpression>
@@ -784,7 +786,7 @@
 					<crosstabCell width="30" height="22">
 						<cellContents>
 							<textField>
-								<reportElement uuid="9d614647-7929-4b26-94c1-f96f54422b39" style="linha-zebrado" mode="Opaque" x="0" y="0" width="30" height="11"/>
+								<reportElement style="linha-zebrado" mode="Opaque" x="0" y="0" width="30" height="11" uuid="9d614647-7929-4b26-94c1-f96f54422b39"/>
 								<box>
 									<topPen lineWidth="0.25"/>
 									<leftPen lineWidth="0.25"/>
@@ -796,7 +798,7 @@
 								<textFieldExpression><![CDATA[$V{situacao} == "Trs" || $V{situacao} == "Aba"  ? "-" : $V{notaMeasure}]]></textFieldExpression>
 							</textField>
 							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-								<reportElement uuid="57bcd6eb-e1e8-4daa-a6e2-ed8273c6e89a" style="linha-zebrado" mode="Opaque" x="0" y="10" width="30" height="11"/>
+								<reportElement style="linha-zebrado" mode="Opaque" x="0" y="10" width="30" height="11" uuid="57bcd6eb-e1e8-4daa-a6e2-ed8273c6e89a"/>
 								<box>
 									<leftPen lineWidth="0.25"/>
 									<bottomPen lineWidth="0.25"/>
@@ -812,8 +814,7 @@
 					<crosstabCell height="25" rowTotalGroup="aluno">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="21407fe9-1114-457c-8aee-cbdcb1736f6a" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="21407fe9-1114-457c-8aee-cbdcb1736f6a"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -821,8 +822,7 @@
 					<crosstabCell width="50" columnTotalGroup="componente_curricular">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="d6b5d082-d63d-40ca-9f2a-9bdb9703c715" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="d6b5d082-d63d-40ca-9f2a-9bdb9703c715"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -830,8 +830,7 @@
 					<crosstabCell rowTotalGroup="aluno" columnTotalGroup="componente_curricular">
 						<cellContents backcolor="#BFE1FF" mode="Opaque">
 							<textField>
-								<reportElement uuid="fe8cfc4c-d50e-43c2-b393-3f7a8ff10fe0" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
-								<textElement/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="fe8cfc4c-d50e-43c2-b393-3f7a8ff10fe0"/>
 								<textFieldExpression><![CDATA[$V{notaMeasure}]]></textFieldExpression>
 							</textField>
 						</cellContents>
@@ -846,7 +845,7 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<subreport>
-				<reportElement uuid="a84c55f4-2125-495f-9694-6d29f88ebe4d" x="0" y="0" width="740" height="79"/>
+				<reportElement x="0" y="0" width="740" height="79" uuid="a84c55f4-2125-495f-9694-6d29f88ebe4d"/>
 				<subreportParameter name="logo">
 					<subreportParameterExpression><![CDATA[$P{logo}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -876,14 +875,14 @@
 	<pageFooter>
 		<band height="11">
 			<textField>
-				<reportElement uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99" x="673" y="0" width="92" height="11"/>
+				<reportElement x="673" y="0" width="92" height="11" uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99"/>
 				<textElement textAlignment="Right" markup="html">
 					<font fontName="DejaVu Sans" size="7" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página: " + $V{PAGE_NUMBER} +" de "]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3" x="765" y="0" width="13" height="11"/>
+				<reportElement x="765" y="0" width="13" height="11" uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="7"/>
 				</textElement>
@@ -894,7 +893,7 @@
 	<lastPageFooter>
 		<band height="320" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="64c8c95f-a624-4f17-83c9-77976f109951" stretchType="RelativeToBandHeight" x="0" y="247" width="233" height="20" isPrintWhenDetailOverflows="true"/>
+				<reportElement stretchType="ContainerHeight" x="0" y="247" width="233" height="20" isPrintWhenDetailOverflows="true" uuid="64c8c95f-a624-4f17-83c9-77976f109951"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 				</box>
@@ -904,7 +903,7 @@
 				<text><![CDATA[Assinatura do(a) funcionário(a) - nº reg. ou aut.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8c2f723b-dfe1-41e6-be85-0f59e664b60f" stretchType="RelativeToBandHeight" x="545" y="247" width="233" height="20" isPrintWhenDetailOverflows="true"/>
+				<reportElement stretchType="ContainerHeight" x="545" y="247" width="233" height="20" isPrintWhenDetailOverflows="true" uuid="8c2f723b-dfe1-41e6-be85-0f59e664b60f"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 				</box>
@@ -914,28 +913,28 @@
 				<text><![CDATA[Assinatura do(a) diretor(a) - nº reg. ou aut.]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3" stretchType="RelativeToBandHeight" x="765" y="298" width="13" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement stretchType="ContainerHeight" x="765" y="298" width="13" height="11" isPrintWhenDetailOverflows="true" uuid="4b84c028-0fba-4d3c-bc46-c7af40e378f3"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99" stretchType="RelativeToBandHeight" x="673" y="298" width="92" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement stretchType="ContainerHeight" x="673" y="298" width="92" height="11" isPrintWhenDetailOverflows="true" uuid="efb657d7-cf1a-4682-b1b5-3f003bbf0b99"/>
 				<textElement textAlignment="Right" markup="html">
 					<font fontName="DejaVu Sans" size="7" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página: " + $V{PAGE_NUMBER} +" de "]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="950a7032-c508-48ea-bd9c-9adb281d700e" stretchType="RelativeToBandHeight" x="0" y="298" width="778" height="11" isPrintWhenDetailOverflows="true"/>
+				<reportElement stretchType="ContainerHeight" x="0" y="298" width="778" height="11" isPrintWhenDetailOverflows="true" uuid="950a7032-c508-48ea-bd9c-9adb281d700e"/>
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cidade_instituicao} +", " +$F{data_extenso} + "."]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement uuid="f46efc07-72eb-4d06-ad8e-b3928061285d" x="489" y="0" width="289" height="52"/>
+				<reportElement x="489" y="0" width="289" height="52" uuid="f46efc07-72eb-4d06-ad8e-b3928061285d"/>
 				<subreportParameter name="source">
 					<subreportParameterExpression><![CDATA[$P{source}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -943,7 +942,7 @@
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "statistics.jasper"]]></subreportExpression>
 			</subreport>
 			<frame>
-				<reportElement uuid="39ee39f4-90fd-46c5-8bed-0c9dc77eeec7" positionType="Float" stretchType="RelativeToTallestObject" x="10" y="57" width="768" height="22" isPrintWhenDetailOverflows="true"/>
+				<reportElement positionType="Float" stretchType="ElementGroupHeight" x="10" y="57" width="768" height="22" isPrintWhenDetailOverflows="true" uuid="39ee39f4-90fd-46c5-8bed-0c9dc77eeec7"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -952,14 +951,14 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="bf12a687-df68-458e-be47-e59a441b2c9a" positionType="Float" stretchType="RelativeToTallestObject" x="350" y="10" width="415" height="12" isPrintWhenDetailOverflows="true"/>
+					<reportElement positionType="Float" stretchType="ElementGroupHeight" x="350" y="10" width="415" height="12" isPrintWhenDetailOverflows="true" uuid="bf12a687-df68-458e-be47-e59a441b2c9a"/>
 					<textElement textAlignment="Justified">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{observacao}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="e1959c5b-b9cc-4c92-8579-0ca194686f5d" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="10" width="347" height="12" isPrintWhenDetailOverflows="true"/>
+					<reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="10" width="347" height="12" isPrintWhenDetailOverflows="true" uuid="e1959c5b-b9cc-4c92-8579-0ca194686f5d"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 						<paragraph leftIndent="2"/>
@@ -967,7 +966,7 @@
 					<textFieldExpression><![CDATA["Rem: remanejado | Trs: transferido | Recl: reclassificado | Apr: Aprovado | ApDp: Ap. Depen. | ApCo: Aprovado pelo conselho | Rep: Reprovado | Cur: Cursando | Aba: Abandono | RpFt: Reprovado por faltas | Fal: Falecido"]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement uuid="29b77150-3498-4e7c-879b-c6d1abf4e158" positionType="Float" x="0" y="0" width="100" height="10"/>
+					<reportElement positionType="Float" x="0" y="0" width="100" height="10" uuid="29b77150-3498-4e7c-879b-c6d1abf4e158"/>
 					<textElement>
 						<font fontName="DejaVu Sans" size="8"/>
 						<paragraph leftIndent="2"/>
@@ -975,14 +974,14 @@
 					<text><![CDATA[Legenda]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="a9a158cd-be88-4333-ae1f-d857bd64d926" positionType="Float" x="350" y="0" width="100" height="10"/>
+					<reportElement positionType="Float" x="350" y="0" width="100" height="10" uuid="a9a158cd-be88-4333-ae1f-d857bd64d926"/>
 					<textElement markup="none">
 						<font fontName="DejaVu Sans" size="8"/>
 					</textElement>
 					<text><![CDATA[Observações]]></text>
 				</staticText>
 				<line>
-					<reportElement uuid="f190c958-a271-40ab-9eff-1e13031f11b2" positionType="Float" stretchType="RelativeToBandHeight" x="347" y="0" width="1" height="22"/>
+					<reportElement positionType="Float" stretchType="ContainerHeight" x="347" y="0" width="1" height="22" uuid="f190c958-a271-40ab-9eff-1e13031f11b2"/>
 					<graphicElement>
 						<pen lineWidth="0.25"/>
 					</graphicElement>
