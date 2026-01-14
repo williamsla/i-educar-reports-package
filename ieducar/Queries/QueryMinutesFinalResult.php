@@ -100,6 +100,8 @@ class QueryMinutesFinalResult extends QueryBridge
                    AND turma.cod_turma = $P{turma}
                    AND view_situacao.cod_situacao = $P{situacao}
                    AND CASE WHEN $P!{filtro_areas_conhecimento} THEN true ELSE cc.area_conhecimento_id IN ($P!{areas_conhecimento}) END
+                   AND view_componente_curricular.nome !~ '([a-zA-Z]{2}[0-9]{2}){2}'
+                   AND view_componente_curricular.nome !~ '[0-9][0-9]?.'
                 ORDER BY nm_escola,
                           curso.nm_curso,
                           serie.nm_serie,
