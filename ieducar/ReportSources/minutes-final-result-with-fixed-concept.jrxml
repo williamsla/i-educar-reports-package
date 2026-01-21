@@ -464,7 +464,7 @@
 						</crosstabTotalColumnHeader>
 					</columnGroup>
 					<measure name="notaMeasure" class="java.lang.String">
-						<measureExpression><![CDATA[$F{nota} == null ? " - " : $F{nota}]]></measureExpression>
+						<measureExpression><![CDATA[$F{carga_horaria_componente} == null ? "-" : $P{conceito_fixo}]]></measureExpression>
 					</measure>
 					<measure name="count_aluno" class="java.lang.Integer">
 						<measureExpression><![CDATA[$F{aluno}]]></measureExpression>
@@ -687,6 +687,7 @@
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font fontName="DejaVu Sans" size="8"/>
 									</textElement>
+									<textFieldExpression><![CDATA[""]]></textFieldExpression>
 								</textField>
 								<textField isBlankWhenNull="true">
 									<reportElement style="linha-zebrado" mode="Opaque" x="323" y="10" width="42" height="11" uuid="53d680c6-c629-4588-a7df-5c16427abbe7"/>
@@ -763,19 +764,7 @@
 						</crosstabTotalColumnHeader>
 					</columnGroup>
 					<measure name="notaMeasure" class="java.lang.String">
-						<measureExpression><![CDATA[
-								$F{nota} == null || $F{nota}.trim().isEmpty()
-								? " - "
-								: (
-									$F{nota}.matches("[-+]?[0-9]*\\.?[0-9]+")
-									? String.format(
-										java.util.Locale.US,
-										"%.1f",
-										Double.valueOf($F{nota})
-									)
-									: $F{nota}
-								)
-							]]></measureExpression>
+						<measureExpression><![CDATA[$F{carga_horaria_componente} == null ? "-" : $P{conceito_fixo}]]></measureExpression>
 					</measure>
 					<measure name="count_aluno" class="java.lang.Integer">
 						<measureExpression><![CDATA[$F{aluno}]]></measureExpression>
