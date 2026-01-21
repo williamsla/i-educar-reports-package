@@ -28,15 +28,22 @@ class MinutesFinalResultController extends Portabilis_Controller_ReportCoreContr
 
         $this->inputsHelper()->textArea('observacao', ['required' => false, 'label' => 'Observações', 'placeholder' => 'Utilize este espaço para exibir uma mensagem ou recado na ata de resutado final.']);
 
-        $helperOptions = ['objectName' => 'areaconhecimento'];
-        $options = [
-            'label' => 'Áreas de conhecimento',
-            'size' => 50,
-            'required' => false,
-            'placeholder' => 'Todas',
-            'options' => ['value' => null]
-        ];
-        $this->inputsHelper()->multipleSearchAreasConhecimento('', $options, $helperOptions);
+        // $helperOptions = ['objectName' => 'areaconhecimento'];
+        // $options = [
+        //     'label' => 'Áreas de conhecimento',
+        //     'size' => 50,
+        //     'required' => false,
+        //     'placeholder' => 'Todas',
+        //     'options' => ['value' => null]
+        // ];
+        //$this->inputsHelper()->multipleSearchAreasConhecimento('', $options, $helperOptions);
+        
+        $this->inputsHelper()->date('data_encerramento', [
+            'placeholder' => '',
+            'label' => 'Data de Encerramento',
+            'value' => date('d/m/Y'),
+            'required' => false
+        ]);
 
         $this->loadResourceAssets($this->getDispatcher());
     }
@@ -62,5 +69,6 @@ class MinutesFinalResultController extends Portabilis_Controller_ReportCoreContr
 
         $this->report->addArg('areas_conhecimento', trim($areasConhecimento) == '' ? 0 : $areasConhecimento);
         $this->report->addArg('filtro_areas_conhecimento', trim($areasConhecimento) == '');
+        $this->report->addArg('data_encerramento', $this->getRequest()->data_encerramento);
     }
 }

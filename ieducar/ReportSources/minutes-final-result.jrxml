@@ -66,6 +66,9 @@
 	<parameter name="data_emissao" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
+	<parameter name="data_encerramento" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<parameter name="turma" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
@@ -939,7 +942,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cidade_instituicao} +", " +$F{data_extenso} + "."]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cidade_instituicao} +", " + ($P{data_encerramento} == null || $P{data_encerramento}.isEmpty() ? $F{data_extenso} : $P{data_encerramento})]]></textFieldExpression>
 			</textField>
 			<subreport>
 				<reportElement x="489" y="0" width="289" height="52" uuid="f46efc07-72eb-4d06-ad8e-b3928061285d"/>
