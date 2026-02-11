@@ -66,7 +66,9 @@ class MinutesFinalResultController extends Portabilis_Controller_ReportCoreContr
         $this->report->addArg('serie', $serieId);
         $this->report->addArg('turma', $turmaId);
         $this->report->addArg('situacao', (int) $this->getRequest()->situacao_matricula_id);
-        $this->report->addArg('observacao', $this->getRequest()->observacao);
+        
+        $observacao_encoded = base64_encode($this->getRequest()->observacao);
+        $this->report->addArg('observacao_b64', $observacao_encoded);
 
         $areasConhecimento = $this->getRequest()->areaconhecimento ?? [];
         $areasConhecimento = implode(',', array_filter($areasConhecimento));

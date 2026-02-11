@@ -87,7 +87,10 @@
 	<parameter name="source" class="java.lang.String">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
 	</parameter>
-	<parameter name="observacao" class="java.lang.String"/>
+	<parameter name="observacao_b64" class="java.lang.String"/>
+	<parameter name="observacao" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String(java.util.Base64.getDecoder().decode($P{observacao_b64}), "UTF-8")]]></defaultValueExpression>
+	</parameter>
 	<parameter name="filtro_areas_conhecimento" class="java.lang.Boolean"/>
 	<parameter name="tem_conceito_fixo" class="java.lang.Boolean">
 		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>

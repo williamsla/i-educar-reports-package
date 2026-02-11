@@ -19,6 +19,8 @@ class MinutesFinalResultReport extends Portabilis_Report_ReportCore
         // tipo_nota = 2 significa conceitual
         if ($tipoNota == 0 || ($tipoNota == 2 && $tem_conceito_fixo)) {
             return 'minutes-final-result-with-fixed-concept';
+        } elseif ($tipoNota == 2 && !$tem_conceito_fixo) {
+            return 'minutes-final-result-with-concept';
         }
 
         return 'minutes-final-result';
