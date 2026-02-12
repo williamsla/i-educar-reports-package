@@ -46,6 +46,11 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
         $this->inputsHelper()->dynamic(['ano', 'instituicao', 'escola', 'vinculo']);
         $this->inputsHelper()->dynamic('escola', ['required' => false]);
         $this->inputsHelper()->dynamic('vinculo', ['required' => false]);
+        $this->inputsHelper()->dynamic('curso', ['required' => false]);
+        $this->inputsHelper()->dynamic('serie', [
+            'required' => false,
+            'options' => ['multiple' => 8, 'label' => 'Série(s)'],
+        ]);
 
         $lista_funcoes = DB::table('pmieducar.funcao')->select('cod_funcao', 'nm_funcao')->where('ativo', 1)->get()->toArray();
         $opcoes = ['' => 'Selecione'];
@@ -70,9 +75,10 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
             0 => 'Padrão',
             1 => 'Para assinatura'
         ];
-        $this->campoLista('modelo', 'Modelo', $modelo, $this->modelo, null, false, '', '', false, false);
+        $this->campoRadio('modelo', 'Modelo', $modelo, $this->modelo ?? 0);
         $this->inputsHelper()->checkbox('emitir_totalizadores', ['label' => 'Adicionar totalizadores ao fim do relatório', 'value' => 1]);
-        $this->inputsHelper()->checkbox('nao_emitir_afastados', ['label' => 'Não emitir servidores afastados']);
+        $this->inputsHelper()->checkbox('nao_emitir_afastados', ['label' => 'Não emitir servidores afastados', 'value' => 1]);
+        $this->loadResourceAssets($this->getDispatcher());
     }
 
     /**
@@ -80,9 +86,18 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
      */
     public function beforeValidation()
     {
+        $serieRequest = $this->getRequest()->ref_cod_serie_id
+            ?? $this->getRequest()->ref_cod_serie
+            ?? $_REQUEST['ref_cod_serie_id'] ?? null;
+        $series = is_array($serieRequest)
+            ? implode(',', array_filter(array_map('intval', $serieRequest)))
+            : (int) ($serieRequest ?? 0);
+
         $this->report->addArg('ano', (int) $this->getRequest()->ano);
         $this->report->addArg('instituicao', (int) $this->getRequest()->ref_cod_instituicao);
         $this->report->addArg('escola', (int) $this->getRequest()->ref_cod_escola);
+        $this->report->addArg('curso', (int) $this->getRequest()->ref_cod_curso);
+        $this->report->addArg('serie', $series);
         $this->report->addArg('funcao', (int) $this->getRequest()->funcao);
         $this->report->addArg('vinculo', (int) $this->getRequest()->vinculo_id);
         $this->report->addArg('periodo', (int) $this->getRequest()->periodo);
