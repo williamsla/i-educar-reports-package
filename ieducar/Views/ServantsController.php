@@ -43,15 +43,16 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
      */
     public function form()
     {
-        $this->inputsHelper()->dynamic(['ano', 'instituicao', 'escola', 'vinculo']);
+        $this->inputsHelper()->dynamic(['ano', 'instituicao', 'escola']);
         $this->inputsHelper()->dynamic('escola', ['required' => false]);
-        $this->inputsHelper()->dynamic('vinculo', ['required' => false]);
         $this->inputsHelper()->dynamic('curso', ['required' => false]);
         $this->inputsHelper()->dynamic('serie', [
             'required' => false,
             'options' => ['multiple' => 8, 'label' => 'Série(s)'],
         ]);
 
+        $this->inputsHelper()->dynamic('vinculo', ['required' => false]);
+        
         $lista_funcoes = DB::table('pmieducar.funcao')->select('cod_funcao', 'nm_funcao')->where('ativo', 1)->get()->toArray();
         $opcoes = ['' => 'Selecione'];
         
