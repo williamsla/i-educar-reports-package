@@ -105,6 +105,37 @@ class ServantsController extends Portabilis_Controller_ReportCoreController
         $this->report->addArg('modelo', (int) $this->getRequest()->modelo);
         $this->report->addArg('emitir_totalizadores', (bool) $this->getRequest()->emitir_totalizadores);
         $this->report->addArg('nao_emitir_afastados', (bool) $this->getRequest()->nao_emitir_afastados);
+
+        $filtros = [];
+        $curso = (int) $this->getRequest()->ref_cod_curso;
+        if ($curso) {
+            $nome = DB::table('pmieducar.curso')->where('cod_curso', $curso)->value('nm_curso');
+            $filtros[] = 'Curso: ' . ($nome ?: $curso);
+        }
+        if (!empty($series) && $series !== '0') {
+            $ids = array_filter(array_map('intval', explode(',', (string) $series)));
+            $nomes = DB::table('pmieducar.serie')->whereIn('cod_serie', $ids)->pluck('nm_serie');
+            $filtros[] = 'Série(s): ' . $nomes->implode(', ');
+        }
+        $funcao = (int) $this->getRequest()->funcao;
+        if ($funcao) {
+            $nome = DB::table('pmieducar.funcao')->where('cod_funcao', $funcao)->value('nm_funcao');
+            $filtros[] = 'Função: ' . ($nome ?: $funcao);
+        }
+        $vinculo = (int) $this->getRequest()->vinculo_id;
+        if ($vinculo) {
+            $nome = DB::table('portal.funcionario_vinculo')->where('cod_funcionario_vinculo', $vinculo)->value('nm_vinculo');
+            $filtros[] = 'Vínculo: ' . ($nome ?: $vinculo);
+        }
+        $periodo = (int) $this->getRequest()->periodo;
+        $periodos = [0 => 'Todos', 1 => 'Matutino', 2 => 'Vespertino', 3 => 'Noturno'];
+        $filtros[] = 'Período: ' . ($periodos[$periodo] ?? 'Todos');
+
+        $filtrosStr = implode(' | ', $filtros);
+        if (!mb_check_encoding($filtrosStr, 'UTF-8')) {
+            $filtrosStr = mb_convert_encoding($filtrosStr, 'UTF-8', 'ISO-8859-1');
+        }
+        $this->report->addArg('filtros_selecionados_b64', base64_encode($filtrosStr));
     }
 
     /**

@@ -8,6 +8,7 @@ class MinutesFinalResultModifier extends BaseModifier
     private $statistics = [
         'students' => 0,
         'approved' => 0,
+        'approved_by_council' => 0,
         'disapproved' => 0,
         'studying' => 0,
         'transferred' => 0,
@@ -274,6 +275,9 @@ class MinutesFinalResultModifier extends BaseModifier
                 break;
             case App_Model_MatriculaSituacao::EM_ANDAMENTO:
                 $this->statistics['studying']++;
+                break;
+            case App_Model_MatriculaSituacao::APROVADO_PELO_CONSELHO:
+                $this->statistics['approved_by_council']++;
                 break;
             case App_Model_MatriculaSituacao::TRANSFERIDO:
                 $this->statistics['transferred']++;
