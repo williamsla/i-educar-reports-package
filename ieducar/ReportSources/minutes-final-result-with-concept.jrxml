@@ -795,7 +795,7 @@
 					</measure>
 					<crosstabCell width="30" height="22">
 						<cellContents>
-							<textField>
+							<textField isBlankWhenNull="true">
 								<reportElement style="linha-zebrado" mode="Opaque" x="0" y="0" width="30" height="11" uuid="9d614647-7929-4b26-94c1-f96f54422b39"/>
 								<box>
 									<topPen lineWidth="0.25"/>
