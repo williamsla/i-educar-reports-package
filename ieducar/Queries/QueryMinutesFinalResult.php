@@ -100,6 +100,27 @@ class QueryMinutesFinalResult extends QueryBridge
                    AND turma.cod_turma = $P{turma}
                    AND view_situacao.cod_situacao = $P{situacao}
                    AND CASE WHEN $P!{filtro_areas_conhecimento} THEN true ELSE cc.area_conhecimento_id IN ($P!{areas_conhecimento}) END
+                   AND matricula_turma.sequencial = (SELECT max(mt.sequencial)
+                                                     FROM pmieducar.matricula_turma mt
+                                                     WHERE mt.ref_cod_matricula = matricula.cod_matricula
+                                                       AND mt.ref_cod_turma = turma.cod_turma
+                                                       AND (mt.ativo = 1 OR (
+                                                         mt.transferido OR
+                                                         mt.remanejado OR
+                                                         mt.reclassificado OR
+                                                         mt.abandono OR
+                                                         mt.falecido
+                                                       )))
+                   AND NOT EXISTS (SELECT *
+                                    FROM pmieducar.matricula_turma mt
+                                   INNER JOIN pmieducar.matricula m ON (m.cod_matricula = mt.ref_cod_matricula)
+                                   WHERE mt.ref_cod_turma = matricula_turma.ref_cod_turma
+                                     AND mt.ref_cod_matricula <> matricula_turma.ref_cod_matricula
+                                     AND m.ref_cod_aluno = matricula.ref_cod_aluno
+                                     AND mt.data_enturmacao > matricula_turma.data_enturmacao
+                                     AND m.ativo = 1)
+                   AND view_componente_curricular.nome !~ '([a-zA-Z]{2}[0-9]{2}){2}'
+                   AND view_componente_curricular.nome !~ '[0-9][0-9]?.'
                 ORDER BY nm_escola,
                           curso.nm_curso,
                           serie.nm_serie,

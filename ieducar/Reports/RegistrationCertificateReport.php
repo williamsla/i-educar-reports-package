@@ -72,8 +72,7 @@ SELECT fcn_upper(instituicao.nm_instituicao) AS nm_instituicao,
 	  (SELECT to_char(COALESCE(data_matricula,data_cadastro),'dd/mm/yyyy')
          FROM pmieducar.matricula mt
         WHERE mt.cod_matricula = matricula.cod_matricula AND
-              mt.ativo = 1 AND
-              mt.ultima_matricula = 1) as dt_matricula,
+              mt.ativo = 1) as dt_matricula,
 	   matricula.ano as matricula_ano,
        fcn_upper(instituicao.cidade) as cidade,
 
@@ -133,8 +132,7 @@ SELECT fcn_upper(instituicao.nm_instituicao) AS nm_instituicao,
 			      mt.ano = matricula.ano AND
 			      mt.ref_ref_cod_escola = matricula.ref_ref_cod_escola AND
 			      mt.ref_ref_cod_serie = matricula.ref_ref_cod_serie AND
-			      mt.ativo  = 1 AND
-			      mt.ultima_matricula = 1) AND
+			      mt.ativo  = 1) AND
        pessoa.idpes = fisica.idpes AND
        fisica.idpes = aluno.ref_idpes AND
        aluno.cod_aluno = matricula.ref_cod_aluno AND

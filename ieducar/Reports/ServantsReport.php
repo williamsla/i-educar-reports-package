@@ -43,10 +43,39 @@ class ServantsReport extends Portabilis_Report_ReportCore
         $ano = $this->args['ano'] ?: 0;
         $instituicao = $this->args['instituicao'] ?: 0;
         $escola = $this->args['escola'] ?: 0;
+        $curso = $this->args['curso'] ?: 0;
+        $serie = $this->args['serie'] ?? 0;
         $funcao = $this->args['funcao'] ?: 0;
         $vinculo = $this->args['vinculo'] ?: 0;
         $periodo = $this->args['periodo'] ?: 0;
         $nao_emitir_afastados = $this->args['nao_emitir_afastados'];
+
+        $cursoSerieFilter = '';
+        if ($curso > 0 || !empty($serie)) {
+            $seriesCondition = '';
+            if (!empty($serie) && $serie !== '0') {
+                $seriesList = is_string($serie) ? preg_replace('/[^0-9,]/', '', $serie) : (string) $serie;
+                $seriesList = trim($seriesList, ',');
+                if ($seriesList !== '' && $seriesList !== '0') {
+                    $seriesCondition = "AND t.ref_ref_cod_serie IN ({$seriesList})";
+                }
+            }
+            if ($seriesCondition === '' && $curso > 0) {
+                $seriesCondition = "AND t.ref_cod_curso = {$curso}";
+            } elseif ($curso > 0) {
+                $seriesCondition .= " AND t.ref_cod_curso = {$curso}";
+            }
+            if ($seriesCondition !== '') {
+                $cursoSerieFilter = " AND EXISTS (
+                    SELECT 1 FROM modules.professor_turma pt
+                    INNER JOIN pmieducar.turma t ON t.cod_turma = pt.turma_id
+                    WHERE pt.servidor_id = servidor.cod_servidor
+                    AND pt.ano = {$ano}
+                    AND t.ref_ref_cod_escola = escola.cod_escola
+                    {$seriesCondition}
+                )";
+            }
+        }
 
         return "
 SELECT DISTINCT COALESCE(pessoa_juridica.nome, '') AS nm_escola_servidor,
@@ -110,7 +139,7 @@ SELECT DISTINCT COALESCE(pessoa_juridica.nome, '') AS nm_escola_servidor,
 				    FROM pmieducar.servidor_afastamento sa
                                        WHERE sa.ativo = 1)
              ELSE TRUE
-        END)
+        END){$cursoSerieFilter}
 group by nm_escola_servidor, pessoa.nome, escolaridade.descricao, pessoa.idpes, escola.cod_escola, fisica.cpf, fone_pessoa.fone, fone_pessoa.ddd, servidor_alocacao.ref_cod_servidor, funcao.nm_funcao
  ORDER BY nm_escola_servidor, nm_servidor_order
         ";

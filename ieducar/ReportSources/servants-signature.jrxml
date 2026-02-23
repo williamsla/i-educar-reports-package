@@ -56,6 +56,12 @@
 	<parameter name="funcao" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
+	<parameter name="curso" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="serie" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
 	<parameter name="vinculo" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
 	</parameter>
@@ -70,6 +76,10 @@
 	</parameter>
 	<parameter name="nao_emitir_afastados" class="java.lang.Boolean">
 		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtros_selecionados_b64" class="java.lang.String"/>
+	<parameter name="filtros_selecionados" class="java.lang.String">
+		<defaultValueExpression><![CDATA[($P{filtros_selecionados_b64} != null && !$P{filtros_selecionados_b64}.isEmpty()) ? new String(java.util.Base64.getDecoder().decode($P{filtros_selecionados_b64}), "UTF-8") : ""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="database" class="java.lang.String"/>
 	<parameter name="source" class="java.lang.String"/>
@@ -248,7 +258,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="102">
+		<band height="116">
 			<subreport>
 				<reportElement x="0" y="1" width="555" height="100" uuid="15562236-bb5b-4ab7-bd34-638b125489f8"/>
 				<subreportParameter name="logo">
@@ -274,6 +284,13 @@
 				</subreportParameter>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "header-portrait.jasper"]]></subreportExpression>
 			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="102" width="555" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filtros_selecionados}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>

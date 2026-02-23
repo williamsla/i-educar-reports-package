@@ -28,8 +28,8 @@ class Portabilis_Model_Report_TipoBoletim extends CoreExt_Enum
 
     public function getReports()
     {
-        $dominio = $_SERVER['HTTP_HOST'];
-        if (strpos($dominio, 'japaratinga') !== false) {
+        $anual = getenv('ANNUAL_CONCEPT') ?: 0;
+        if ($anual == 1) {
             $this->_reports[self::CONCEPTUAL] = 'conceptual-report-card-annual';
         }
 

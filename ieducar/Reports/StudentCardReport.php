@@ -13,12 +13,14 @@ class StudentCardReport extends Portabilis_Report_ReportCore
     public function templateName()
     {
         $modelos = [
+            0 => 'student-card-model-transport',
             1 => 'student-card-model1',
             2 => 'student-card-model2',
             3 => 'student-card-model3',
         ];
 
-        return $modelos[$this->args['modelo']];
+
+        return $this->args['instituicao'] > 1 ? $modelos[0] : $modelos[$this->args['modelo']];
     }
 
     public function requiredArgs()
