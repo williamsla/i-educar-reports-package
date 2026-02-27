@@ -34,7 +34,7 @@ class ConclusionCertificateController extends Portabilis_Controller_ReportCoreCo
         $this->inputsHelper()->dynamic(['ano', 'instituicao', 'escola', 'curso', 'serie']);
         $this->inputsHelper()->dynamic('turma', (['required' => false]));
         $this->inputsHelper()->simpleSearchMatricula(null, ['required' => false]);
-        $this->inputsHelper()->checkbox('mostrar_prazo_entrega_historico', ['label' => 'Emitir prazo de entrega do histórico escolar?']);
+        $this->inputsHelper()->checkbox('mostrar_prazo_entrega_historico', ['label' => 'Emitir prazo de entrega do histórico escolar?', 'value' => true]);
         $this->inputsHelper()->integer('prazo_entrega_historico', [
             'required' => false,
             'label' => 'Prazo de entrega do histórico escolar.',
@@ -43,7 +43,8 @@ class ConclusionCertificateController extends Portabilis_Controller_ReportCoreCo
             'max_length' => 3,
             'size' => 20
         ]);
-        $this->campoMemo('observacao', 'Observação', $this->observacao, 48, 5, false);
+        $this->campoMemo('observacao', 'Observação', $this->observacao, 48, 3, false);
+        $this->inputsHelper()->text('alterar_nome_secretario', ['label' => 'Alterar nome funcionário(a) responsável', 'value' => false, 'required' => false]);
 
         $this->loadResourceAssets($this->getDispatcher());
     }
@@ -53,6 +54,7 @@ class ConclusionCertificateController extends Portabilis_Controller_ReportCoreCo
      */
     public function beforeValidation()
     {
+        $this->report->addArg('dominio', $_SERVER['HTTP_HOST']);
         $this->report->addArg('ano', (int) $this->getRequest()->ano);
         $this->report->addArg('instituicao', (int) $this->getRequest()->ref_cod_instituicao);
         $this->report->addArg('escola', (int) $this->getRequest()->ref_cod_escola);
@@ -62,7 +64,11 @@ class ConclusionCertificateController extends Portabilis_Controller_ReportCoreCo
         $this->report->addArg('turma', (int) $this->getRequest()->ref_cod_turma);
         $this->report->addArg('mostrar_prazo_entrega_historico', (bool) $this->getRequest()->mostrar_prazo_entrega_historico);
         $this->report->addArg('prazo_entrega_historico', (int) $this->getRequest()->prazo_entrega_historico);
-        $this->report->addArg('observacao', $this->getRequest()->observacao);
+        // $this->report->addArg('observacao', $this->getRequest()->observacao);
+        $observacao_encoded = base64_encode($this->getRequest()->observacao);
+        $this->report->addArg('observacao_b64', $observacao_encoded);
+        
+        $this->report->addArg('alterar_nome_secretario', $this->getRequest()->alterar_nome_secretario);
     }
 
     /**

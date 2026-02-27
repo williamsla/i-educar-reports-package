@@ -10,7 +10,11 @@
 	<parameter name="escola" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new java.lang.Integer(0)]]></defaultValueExpression>
 	</parameter>
-	<parameter name="observacao" class="java.lang.String"/>
+	<parameter name="dominio" class="java.lang.String"/>
+	<parameter name="observacao_b64" class="java.lang.String"/>
+	<parameter name="observacao" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String(java.util.Base64.getDecoder().decode($P{observacao_b64}), "UTF-8")]]></defaultValueExpression>
+	</parameter>
 	<parameter name="logo" class="java.lang.String"/>
 	<parameter name="data_emissao" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
@@ -48,6 +52,7 @@
 	</parameter>
 	<parameter name="database" class="java.lang.String"/>
 	<parameter name="source" class="java.lang.String"/>
+	<parameter name="alterar_nome_secretario" class="java.lang.String"/>
 	<field name="nm_instituicao" class="java.lang.String"/>
 	<field name="nm_responsavel" class="java.lang.String"/>
 	<field name="cod_escola" class="java.lang.Integer"/>
@@ -59,6 +64,7 @@
 	<field name="periodo" class="java.lang.String"/>
 	<field name="cod_aluno" class="java.lang.Integer"/>
 	<field name="cod_matricula" class="java.lang.Integer"/>
+	<field name="situacao" class="java.lang.String"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="cidade" class="java.lang.String"/>
 	<field name="data_atual" class="java.lang.String"/>
@@ -85,6 +91,13 @@
 	<field name="aluno_estado_id" class="java.lang.String"/>
 	<field name="frequencia" class="java.math.BigDecimal"/>
 	<field name="diretor" class="java.lang.String"/>
+	<field name="secretario" class="java.lang.String"/>
+	<variable name="secretario" class="java.lang.String">
+		<variableExpression><![CDATA[$P{alterar_nome_secretario} == null || $P{alterar_nome_secretario}.isEmpty() ? $F{secretario}.toUpperCase() : $P{alterar_nome_secretario}.toUpperCase()]]></variableExpression>
+	</variable>
+	<variable name="funcao" class="java.lang.String">
+		<variableExpression><![CDATA[$P{alterar_nome_secretario} == null || $P{alterar_nome_secretario}.isEmpty() ? "Secretário(a) Escolar" : "Funcionário(a) Responsável"]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -131,8 +144,8 @@
 				<textFieldExpression><![CDATA["Declaramos para os devidos fins de direitos, que o(a) aluno(a) " + $F{nome} + " código do ID " + $F{cod_aluno} + ", nascido(a) em " + $F{data_nasc} + ", no município de " +
 $F{municipio_uf_nascimento} + ", filho(a) de "+ ($F{nm_pai}.equals("") && $F{nm_mae}.equals("") ? "Não Informado" : (!$F{nm_pai}.equals("") && $F{nm_mae}.equals("")
     ? $F{nm_pai} : ($F{nm_pai}.equals("") && !$F{nm_mae}.equals("")
-    ? $F{nm_mae} : ($F{nm_mae} + " e de " + $F{nm_pai})))) + ", concluiu o(a) " + $F{nm_serie} + "/" + $F{sigla_curso} +
-", do(a) " + $F{nm_curso} + ", neste Estabelecimento de Ensino, no ano de " + $F{ano} + "."]]></textFieldExpression>
+    ? $F{nm_mae} : ($F{nm_mae} + " e de " + $F{nm_pai})))) + ", está com situação " + $F{situacao}.toUpperCase() + " no(a) " + $F{nm_serie} +
+" do(a) " + $F{nm_curso} + ", neste Estabelecimento de Ensino, no ano de " + $F{ano} + "."]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="56" width="555" height="15" uuid="8254ee26-1c44-4a50-af32-278794dee199"/>
@@ -148,7 +161,7 @@ $F{municipio_uf_nascimento} + ", filho(a) de "+ ($F{nm_pai}.equals("") && $F{nm_
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Declaramos que o Histórico Escolar será expedido no prazo de " +  $P{prazo_entrega_historico} + " dia(s)."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Declaramos que o Histórico Escolar será expedido no prazo de " +  $P{prazo_entrega_historico} + " dias."]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="21" y="485" width="513" height="14" uuid="90b88942-ea8c-4d08-a9e9-63d3f59a46b0"/>
@@ -158,7 +171,9 @@ $F{municipio_uf_nascimento} + ", filho(a) de "+ ($F{nm_pai}.equals("") && $F{nm_
 				<textFieldExpression><![CDATA[$F{cidade}+", "+$F{data_atual}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="21" y="339" width="68" height="12" uuid="b1b6820c-9942-4dde-92b9-b73466b8f22b"/>
+				<reportElement x="21" y="339" width="68" height="12" uuid="b1b6820c-9942-4dde-92b9-b73466b8f22b">
+					<printWhenExpression><![CDATA[$P{observacao} != null && !$P{observacao}.isEmpty()]]></printWhenExpression>
+				</reportElement>
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
@@ -176,25 +191,34 @@ $F{municipio_uf_nascimento} + ", filho(a) de "+ ($F{nm_pai}.equals("") && $F{nm_
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Código nacional (INEP): " + ($F{cod_inep} == null ? "" : $F{cod_inep})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cod_inep} == null ? "" : "Código nacional (INEP): " + $F{cod_inep}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<pageFooter>
 		<band height="88">
-			<staticText>
-				<reportElement x="134" y="27" width="287" height="20" uuid="9877fef6-6597-4474-be5f-504b1757aed0"/>
+			<textField>
+				<reportElement x="134" y="27" width="287" height="30" uuid="9877fef6-6597-4474-be5f-504b1757aed0"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="DejaVu Sans"/>
 				</textElement>
-				<text><![CDATA[Assinatura]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$V{secretario} + "\n" + $V{funcao}]]></textFieldExpression>
+			</textField>
 			<line>
 				<reportElement x="134" y="26" width="287" height="1" uuid="f7bd76a9-7cb8-4fa1-8a30-c513bce076a6"/>
 				<graphicElement>
 					<pen lineWidth="0.25"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement x="10" y="70" width="513" height="13" uuid="656339ef-c238-4610-9b83-34e086b000a7">
+					<printWhenExpression><![CDATA[$P{dominio}.contains("belem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>
