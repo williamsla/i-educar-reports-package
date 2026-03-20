@@ -29,6 +29,8 @@ class GeneralMovementModifier extends BaseModifier
                 $value['ano_7'],
                 $value['ano_8'],
                 $value['ano_9'],
+                $value['eja_10'],
+                $value['eja_11'],
             ]);
 
             $alunosQueSairam = array_sum([
