@@ -78,11 +78,15 @@ class MinutesFinalResultController extends Portabilis_Controller_ReportCoreContr
         $this->report->addArg('data_encerramento', $this->getRequest()->data_encerramento);
 
         $temConceitoFixoEnv = getenv('TEM_CONCEITO_FIXO');
-        $temConceitoFixo = ($temConceitoFixoEnv !== false && $temConceitoFixoEnv !== '') ? (bool) $temConceitoFixoEnv : false;
-        $this->report->addArg('tem_conceito_fixo', $temConceitoFixo);
+        $temConceitoFixo = filter_var($temConceitoFixoEnv, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+        $temConceitoFixo = $temConceitoFixo ?? false;
+        // Evita validações que tratam false como campo vazio
+        $this->report->addArg('tem_conceito_fixo', $temConceitoFixo ? 'true' : 'false');
 
-        $conceitoFixoEnv = getenv('CONCEITO_FIXO'); // APP ou PPC ou "" ou null
-        $conceitoFixo = ($conceitoFixoEnv !== false && $conceitoFixoEnv !== '') ? (string) $conceitoFixoEnv : '';
+        $conceitoFixoEnv = getenv('CONCEITO_FIXO'); // APP ou PPC
+        $conceitoFixo = ($conceitoFixoEnv !== false && trim((string) $conceitoFixoEnv) !== '')
+            ? trim((string) $conceitoFixoEnv)
+            : 'APP';
         $this->report->addArg('conceito_fixo', $conceitoFixo);
 
         // Buscar o tipo de nota da série para direcionar o relatório adequado
