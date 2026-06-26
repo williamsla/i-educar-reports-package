@@ -96,9 +96,14 @@ class ReportCardReport extends Portabilis_Report_ReportCore
     public function getJsonData()
     {
         $template = $this->templateName();
+        $queries = $this->getQueryByTemplate();
+
+        if (!isset($queries[$template])) {
+            throw new Exception("Não foi possível recuperar a query SQL para o template '{$template}'.");
+        }
 
         return [
-            'main' => Portabilis_Utils_Database::fetchPreparedQuery($this->getQueryByTemplate()[$template]),
+            'main' => Portabilis_Utils_Database::fetchPreparedQuery($queries[$template]),
             'header' => Portabilis_Utils_Database::fetchPreparedQuery($this->getSqlHeaderReport())
         ];
     }
